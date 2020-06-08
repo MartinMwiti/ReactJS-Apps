@@ -9,5 +9,7 @@ Built apps using ReactJS
 **2. React + Bootstrap**
 	npm install --save bootstrap
 	npm install --save reactstrap react react-dom
-	
+
+
 * [Reactstrap](https://reactstrap.github.io/)
+* [Reactstrap Modals](https://reactstrap.github.io/components/modals/)
