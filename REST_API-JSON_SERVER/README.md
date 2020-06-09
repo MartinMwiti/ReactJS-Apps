@@ -1,7 +1,7 @@
 ## Setup
 1. Create an empty folder.
-2. Install JSON Server.
-3. Create ``package.json`` by running ```npm init```.
+2. Create ``package.json`` by running ```npm init```.
+3. Install JSON Server by running ```npm install json-server```.
 4. Run through the steps. NB: you can skip all to create the default .
 5. Create the file to store json, say ``db.json`` and fill it with data.
 * Start JSON Server by 
@@ -17,6 +17,14 @@
 
         [Run] npm run json:server
 
+* Using/adding jsonplaceholder data add to the ``scripts``
+
+        "json:server:remote": "json-server http://jsonplaceholder.typicode.com/db" 
+            // incase you wish to also use jsonplaceholder data/resources
+
+## Using Postman
+* update a value
+    [PATCH] -> Header -> click Key placeholder -> add 'Content-type' -> click value placeholder -> add 'application/json' -> Body -> raw (JSON) -> { *VALUE BEING CHANGED* } -> Send
 
 ## Working with the API
 * ```http://localhost:3000/db``` to view entire database.
