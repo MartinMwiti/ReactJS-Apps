@@ -43,7 +43,7 @@ class App extends Component {
             this.setState({ 
                 books, // updates the books
                 newBookModal:false, // for closing the modal
-                newBookData:{title: "",rating: ""} //resets the modal
+                newBookData:{title: "",rating: ""} //resets/clear the modal field
             })
         })
     }
@@ -74,6 +74,14 @@ class App extends Component {
     }
 
 
+    // Delete Book
+    deleteBook(id){
+        axios.delete("http://localhost:3000/books/"+id)
+        .then((response)=>
+            this._refreshBooks()
+        )
+    }
+
     // modal appear/disapper func
     toggleNewBookModal(){
         this.setState({
@@ -101,7 +109,7 @@ class App extends Component {
                     <td>{book.rating}</td>
                     <td>
                         <Button color="success" size="sm" className="mr-2" onClick={this.editBookData.bind(this, book.id, book.title, book.rating)}>Edit</Button>
-                        <Button color="danger" size="sm">Delete</Button>
+                        <Button color="danger" size="sm" onClick={this.deleteBook.bind(this, book.id)}>Delete</Button>
                     </td>
                 </tr>
                 
