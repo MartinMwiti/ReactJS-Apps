@@ -69,7 +69,7 @@ class App extends Component {
         // close modal after edit and set the 'editBookData' fields to empty
         this.setState({
             editBookModal: false,
-            editBookData: {id: "",title:"",rating: ""}
+            editBookData: {id: "",title:"",rating: ""} //clear
         })
     }
 
@@ -97,11 +97,11 @@ class App extends Component {
     }
 
 
-
-
     render() {
+
         // the 'i' i've added to give each element a unique key as recommended by React. Not necessary.
         let books = this.state.books.map((book, i)=>{
+            
             return( 
                 <tr key={i}>
                     <td>{book.id}</td>
@@ -137,7 +137,7 @@ class App extends Component {
                                 }}
                             />
                         </FormGroup>
-                        <FormGroup>
+                        <FormGroup onSubmit={this.onSubmit}>
                             <Label for="title">Rating</Label>
                             <Input
                                 id="rating"
@@ -149,13 +149,14 @@ class App extends Component {
                                 }}
                             />
                         </FormGroup>
+                    
                     </ModalBody>
                     <ModalFooter>
                         <Button color="primary" onClick={this.addBook.bind(this)}>Add Book</Button>{' '}
                         <Button color="secondary" onClick={this.toggleNewBookModal.bind(this)}>Cancel</Button>
                     </ModalFooter>
                 </Modal>
-
+            
                 {/* EDIT BOOK MODAL */}
                 <Modal isOpen={this.state.editBookModal}>
                     <ModalHeader toggle={this.toggleEditBookModal.bind(this)}>Add a new book</ModalHeader>
