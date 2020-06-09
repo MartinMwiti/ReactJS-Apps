@@ -1,19 +1,19 @@
 {
-    "books": [
-        { 
-        "title": "The Intelligent Investor", 
-        "rating": "4.5", 
-        "id": 1
-        },
-        { 
-        "title": "The Lord of the Rings", 
-        "rating": "4.1", 
-        "id": 2 
-        },
-        { 
-        "title": "Icarus Agenda", 
-        "rating": "4.0", 
-        "id": 3 
-        }
-    ]
+  "books": [
+    {
+      "title": "The Intelligent Investor",
+      "rating": "4.5",
+      "id": 1
+    },
+    {
+      "title": "The Lord of the Rings",
+      "rating": "4.0",
+      "id": 2
+    },
+    {
+      "title": "Icarus Agenda",
+      "rating": "4.5",
+      "id": 3
+    }
+  ]
 }
