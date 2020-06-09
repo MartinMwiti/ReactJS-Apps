@@ -2,6 +2,17 @@ import React, { Component } from 'react'
 import { Table, Button } from 'reactstrap';
 
 class App extends Component {
+    state = {
+        books: []
+    }
+    componentWillMount(){
+        axios.get("http://localhost:3000/books")
+        .then((response)=>this.setState({
+            books: response.data // updates state 'books' with data from the server
+        })
+        )
+    };
+
     render() {
         return (
             <div className="App container">
@@ -18,9 +29,12 @@ class App extends Component {
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td>Book1</td>
+                            <td>Book One</td>
                             <td>4.0</td>
-                            <td>Delete</td>
+                            <td>
+                                <Button color="success" size="sm" className="mr-2">Edit</Button>
+                                <Button color="danger" size="sm">Delete</Button>
+                            </td>
                         </tr>
                     </tbody>
                 </Table>
