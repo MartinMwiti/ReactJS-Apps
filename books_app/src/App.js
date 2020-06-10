@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Table, Button, Label, Input, FormGroup, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
+// components
+import AddBookModal from './components/AddBookModal'
+
+
+
 class App extends Component {
     state = {
         books: [],
@@ -121,43 +126,18 @@ class App extends Component {
 
             <h1>Books App</h1>
                 {/* ADD NEW BOOK MODAL */}
-                <Button className="my-3" color="primary" onClick={this.toggleNewBookModal.bind(this)}>Add Book</Button>
-                <Modal isOpen={this.state.newBookModal}>
-                    <ModalHeader toggle={this.toggleNewBookModal.bind(this)}>Add a new book</ModalHeader>
-                    <ModalBody>
-                        <FormGroup>
-                            <Label for="title">Title</Label>
-                            <Input
-                                id="title"
-                                value={this.state.newBookData.title}
-                                onChange={(e) => {
-                                    let { newBookData } = this.state // destructuring assignment
-                                    newBookData.title = e.target.value
-                                    this.setState({ newBookData })
-                                }}
-                            />
-                        </FormGroup>
-                        <FormGroup onSubmit={this.onSubmit}>
-                            <Label for="title">Rating</Label>
-                            <Input
-                                id="rating"
-                                value={this.state.newBookData.rating}
-                                onChange={(e) => {
-                                    let { newBookData } = this.state // destructuring assignment
-                                    newBookData.rating = e.target.value
-                                    this.setState({ newBookData })
-                                }}
-                            />
-                        </FormGroup>
-                    
-                    </ModalBody>
-                    <ModalFooter>
-                        <Button color="primary" onClick={this.addBook.bind(this)}>Add Book</Button>{' '}
-                        <Button color="secondary" onClick={this.toggleNewBookModal.bind(this)}>Cancel</Button>
-                    </ModalFooter>
-                </Modal>
+                <AddBookModal 
+                    toggleNewBookModal={this.toggleNewBookModal.bind(this)} 
+                    newBookModal={this.state.newBookModal}
+                    addBook={this.addBook.bind(this)}
+                    newBookData={this.state.newBookData}
+                />
             
                 {/* EDIT BOOK MODAL */}
+
+                
+
+
                 <Modal isOpen={this.state.editBookModal}>
                     <ModalHeader toggle={this.toggleEditBookModal.bind(this)}>Add a new book</ModalHeader>
                     <ModalBody>
