@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Button, Label, Input, FormGroup, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-class AddBookModal extends Component {
 
+class AddBookModal extends Component {
 
     render() {
         return (

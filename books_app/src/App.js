@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Table, Button, Label, Input, FormGroup, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Table, Button } from 'reactstrap';
 
 // components
 import AddBookModal from './components/AddBookModal'
+import EditBookModal from './components/EditBookModal'
 
 
 
@@ -94,7 +95,7 @@ class App extends Component {
         })
     }
 
-    // modal appear/disapper func
+    // modal appear/disappear func
     toggleEditBookModal(){
         this.setState({
             editBookModal: !this.state.editBookModal
@@ -134,44 +135,12 @@ class App extends Component {
                 />
             
                 {/* EDIT BOOK MODAL */}
-
-                
-
-
-                <Modal isOpen={this.state.editBookModal}>
-                    <ModalHeader toggle={this.toggleEditBookModal.bind(this)}>Add a new book</ModalHeader>
-                    <ModalBody>
-                        <FormGroup>
-                            <Label for="title">Title</Label>
-                            <Input
-                                id="title"
-                                value={this.state.editBookData.title}
-                                onChange={(e) => {
-                                    let { editBookData } = this.state // destructuring assignment
-                                    editBookData.title = e.target.value
-                                    this.setState({ editBookData })
-                                }}
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label for="title">Rating</Label>
-                            <Input
-                                id="rating"
-                                value={this.state.editBookData.rating}
-                                onChange={(e) => {
-                                    let { editBookData } = this.state // destructuring assignment
-                                    editBookData.rating = e.target.value
-                                    this.setState({ editBookData })
-                                }}
-                            />
-                        </FormGroup>
-                    </ModalBody>
-                    <ModalFooter>
-                        <Button color="primary" onClick={this.updateBook.bind(this)}>Update Book</Button>{' '}
-                        <Button color="secondary" onClick={this.toggleEditBookModal.bind(this)}>Cancel</Button>
-                    </ModalFooter>
-                </Modal>
-
+                <EditBookModal 
+                    toggleEditBookModal={this.toggleEditBookModal.bind(this)} 
+                    editBookModal={this.state.editBookModal}
+                    updateBook={this.updateBook.bind(this)}
+                    editBookData={this.state.editBookData}
+                />
 
                 <Table>
                     <thead>
