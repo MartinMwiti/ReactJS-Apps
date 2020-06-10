@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Header() {
+const Header = () => {
     return (
         <header>
             <i className="fas fa-book fa-2x"></i>

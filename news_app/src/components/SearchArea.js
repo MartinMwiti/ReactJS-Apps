@@ -1,17 +1,22 @@
 import React from 'react'
 
-const SearchArea = () => {
+
+function SearchArea(props) {
 
     return (
         <div className="search-area">
             <form action="">
                 <input 
-                    type="text" 
+                    className="search-box" 
+                    onChange={props.handleSearch}
                     name="" 
                     value="" 
+                    type="text"
+                    placeholder="Enter search"
                 />
-                <button type="submit">Search</button>
+                <button className="search-btn" type="submit"><i className="fas fa-search" /></button>
             </form>
+            
         </div>
     )
 }
