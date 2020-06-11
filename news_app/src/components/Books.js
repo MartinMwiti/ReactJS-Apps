@@ -29,7 +29,7 @@ class Books extends Component {
           .get("https://www.googleapis.com/books/v1/volumes")
           .query({ q: this.state.searchField })
           .then((data) => {
-            console.log(data)
+            // console.log(data)
             this.setState({
               books: [...data.body.items] //location of the data as directed buy 'console.log(data)'
             })
