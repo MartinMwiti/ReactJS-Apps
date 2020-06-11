@@ -17,7 +17,6 @@ class Books extends Component {
 
     // Handle onChange
     handleSearch=(e)=>{
-            // console.log(e.target.value)
         this.setState({
             searchField: e.target.value
         })
@@ -25,11 +24,31 @@ class Books extends Component {
 
     // Handle sort
     handleSort = (e) => {
-      console.log(e.target.value)
+        console.log(e.target.value)
       this.setState({
         sort: e.target.value
       })
     }
+
+    // Clean Data
+    cleanData = (data) => {
+      const cleanedData = data.body.items.map((book)=>{
+        if(book.volumeInfo.hasOwnProperty('publishedDate')=== false){
+          book.volumeInfo['publishedDate'] = '0000'
+        }
+
+        else if(book.volumeInfo.hasOwnProperty('imageLinks') === false) {
+          book.volumeInfo['imageLinks'] = {
+            thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTM5BMvVJfq-yeKU5vJloUOeE58Rw0U4ABfIovM32GzEjQMmO35&usqp=CAU"
+          }
+        }
+
+        return book;
+      })
+
+      return cleanedData;
+    }
+
 
     // "Get" method using entered value from searchField
     searchBook = (e)=>{
@@ -38,9 +57,10 @@ class Books extends Component {
           .get("https://www.googleapis.com/books/v1/volumes")
           .query({ q: this.state.searchField })
           .then((data) => {
-            // console.log(data)
+            console.log(data)
+            const cleanData = this.cleanData(data)
             this.setState({
-              books: [...data.body.items] //location of the data as directed buy 'console.log(data)'
+              books: cleanData //location of the data as directed buy 'console.log(data)'
             })
           });
 
