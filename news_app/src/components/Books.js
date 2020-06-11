@@ -57,7 +57,7 @@ class Books extends Component {
           .get("https://www.googleapis.com/books/v1/volumes")
           .query({ q: this.state.searchField })
           .then((data) => {
-            console.log(data)
+              console.log(data)
             const cleanData = this.cleanData(data)
             this.setState({
               books: cleanData //location of the data as directed buy 'console.log(data)'
@@ -70,6 +70,16 @@ class Books extends Component {
     }
 
     render() {
+      // Sorted Books
+      const sortedBooks = this.state.books.sort((a,b)=>{
+        if(this.state.sort === 'Newest'){
+          return parseInt(b.volumeInfo.publishedDate.substring(0, 4)) - parseInt(a.volumeInfo.publishedDate.substring(0, 4))
+        }
+        else if(this.state.sort === 'Oldest') {
+          return parseInt(a.volumeInfo.publishedDate.substring(0, 4)) - parseInt(b.volumeInfo.publishedDate.substring(0, 4))
+        }
+      })
+
         return (
           <div>
             <SearchArea
@@ -80,7 +90,7 @@ class Books extends Component {
               handleSort={this.handleSort}
             />
 
-            <BookList books={this.state.books}/>
+            <BookList books={sortedBooks}/>
 
           </div>
         );
