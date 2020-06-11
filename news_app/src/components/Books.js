@@ -11,6 +11,7 @@ class Books extends Component {
         this.state = {
             books: [],
             searchField: '',
+            sort:'',
         }
     }
 
@@ -20,6 +21,14 @@ class Books extends Component {
         this.setState({
             searchField: e.target.value
         })
+    }
+
+    // Handle sort
+    handleSort = (e) => {
+      console.log(e.target.value)
+      this.setState({
+        sort: e.target.value
+      })
     }
 
     // "Get" method using entered value from searchField
@@ -35,6 +44,9 @@ class Books extends Component {
             })
           });
 
+
+  
+
     }
 
     render() {
@@ -45,6 +57,7 @@ class Books extends Component {
 
               handleSearch={this.handleSearch}
               searchBook={this.searchBook}
+              handleSort={this.handleSort}
             />
 
             <BookList books={this.state.books}/>
