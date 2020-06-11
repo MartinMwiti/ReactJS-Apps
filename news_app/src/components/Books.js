@@ -42,10 +42,10 @@ class Books extends Component {
             thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTM5BMvVJfq-yeKU5vJloUOeE58Rw0U4ABfIovM32GzEjQMmO35&usqp=CAU"
           }
         }
-
+        // if no changes made. Inside cleanedData
         return book;
       })
-
+      // if changes have been made. Outside/Product of cleanedData
       return cleanedData;
     }
 
@@ -62,11 +62,7 @@ class Books extends Component {
             this.setState({
               books: cleanData //location of the data as directed buy 'console.log(data)'
             })
-          });
-
-
-  
-
+          }); 
     }
 
     render() {
@@ -78,7 +74,7 @@ class Books extends Component {
         else if(this.state.sort === 'Oldest') {
           return parseInt(a.volumeInfo.publishedDate.substring(0, 4)) - parseInt(b.volumeInfo.publishedDate.substring(0, 4))
         }
-      })
+      });
 
         return (
           <div>
