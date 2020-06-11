@@ -2,18 +2,23 @@
   "books": [
     {
       "title": "The Intelligent Investor",
-      "rating": "4.5",
+      "rating": "4.7",
       "id": 1
     },
     {
-      "title": "The Lord of the Rings",
-      "rating": "4.0",
-      "id": 2
+      "title": "1984",
+      "rating": "4.5",
+      "id": 19
     },
     {
-      "title": "Icarus Agenda",
-      "rating": "4.5",
-      "id": 3
+      "title": "Animal Farm",
+      "rating": "4.2",
+      "id": 20
+    },
+    {
+      "title": "Elon Musk",
+      "rating": "4.6",
+      "id": 21
     }
   ]
 }
