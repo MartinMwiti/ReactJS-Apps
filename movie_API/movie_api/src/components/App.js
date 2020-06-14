@@ -4,6 +4,7 @@ import '../App.css';
 // Components
 import Nav from './Nav'
 import SearchArea from './SearchArea'
+import MovieList from './MovieList'
 
 class App extends Component {
   constructor(){
@@ -34,12 +35,15 @@ class App extends Component {
   
   render() {
     return (
-      <div className="">
+      <div>
         <Nav />
         <SearchArea 
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
           searchTerm={this.state.searchTerm}
+        />
+        <MovieList 
+          movies={this.state.movies}
         />
       </div>
     )
