@@ -76,7 +76,7 @@ class App extends Component {
       <div>
 
         <Nav />
-        {this.state.currentMovie == null? 
+        {this.state.currentMovie == null ? 
         <div>
           <SearchArea 
             handleSubmit={this.handleSubmit}
@@ -100,9 +100,10 @@ class App extends Component {
               :
               '' // display nothing if there in no pagination       
           }
-
         </div>
+
         :
+
         <MovieInfo 
           closeMovieInfo={this.closeMovieInfo}
           currentMovie={this.state.currentMovie}
