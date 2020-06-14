@@ -6,6 +6,7 @@ import Nav from './Nav'
 import SearchArea from './SearchArea'
 import MovieList from './MovieList'
 import Pagination from './Pagination'
+import MovieInfo from './MovieInfo'
 
 class App extends Component {
   constructor(){
@@ -15,6 +16,7 @@ class App extends Component {
         searchTerm: '',
         totalResults: 0,
         currentPage: 1,
+        currentMovie: null,
       }   
     // API Credentials
     this.apiKey = process.env.REACT_APP_API 
@@ -52,6 +54,19 @@ class App extends Component {
       })
   }
 
+
+  viewMovieInfo=(id)=>{
+    const filteredMovie = this.state.movies.filter((movie)=> movie.id === id) // returns an array
+
+    const newCurrentMovie = filteredMovie.length > 0 ? filteredMovie[0] : null // if the selected movie exists, pick the first one else return 'null'. Meaning no movie exists.
+
+    this.setState({ currentMovie: newCurrentMovie})
+  }
+
+  closeMovieInfo = ()=>{
+    this.setState({currentMovie: null})
+  }
+
   
   render() {
 
@@ -61,28 +76,40 @@ class App extends Component {
       <div>
 
         <Nav />
-
-        <SearchArea 
-          handleSubmit={this.handleSubmit}
-          handleChange={this.handleChange}
-          searchTerm={this.state.searchTerm}
-        />
-
-        <MovieList 
-          movies={this.state.movies}
-        />
-
-        { 
-          this.state.totalResults > 20 
-          ? 
-          <Pagination 
-            pages={numberPages} 
-            nextPage={this.nextPage} 
-            currentPage={this.state.currentPage} 
+        {this.state.currentMovie == null? 
+        <div>
+          <SearchArea 
+            handleSubmit={this.handleSubmit}
+            handleChange={this.handleChange}
+            searchTerm={this.state.searchTerm}
           />
-          :
-          '' // display nothing if there in no pagination       
+
+          <MovieList
+            movies={this.state.movies}
+            viewMovieInfo={this.viewMovieInfo}
+          />
+
+          {
+            this.state.totalResults > 20
+              ?
+              <Pagination
+                pages={numberPages}
+                nextPage={this.nextPage}
+                currentPage={this.state.currentPage}
+              />
+              :
+              '' // display nothing if there in no pagination       
+          }
+
+        </div>
+        :
+        <MovieInfo 
+          closeMovieInfo={this.closeMovieInfo}
+          currentMovie={this.state.currentMovie}
+        />
         }
+
+        
 
       </div>
     )

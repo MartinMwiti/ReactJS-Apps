@@ -5,16 +5,20 @@ const MovieList = (props) =>{
     return (
         <div className="container">
             <div className="row">
+                    {/* LOOP FOR EACH IMAGE */}
                 {
                     props.movies.map((movie, i) =>{
                         return (
                             <Movie 
-                                key={i} 
+                                key={i}
+                                viewMovieInfo={props.viewMovieInfo}
+                                movieId={movie.id} 
                                 image={movie.poster_path}
                             />
                         )
                     })
                 }
+
             </div>
         </div>
     )
