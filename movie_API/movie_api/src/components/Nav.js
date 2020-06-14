@@ -4,8 +4,8 @@ import React from 'react'
 const Nav = () => {
     return (
         <nav>
-            <div className="nav-wrapper container">
-                <a href="#" class="brand-logo">Movie Finder</a>
+            <div className="nav-wrapper container"> 
+                <a href="#" className="brand-logo">Movie Finder</a>
                
            </div>
         </nav>

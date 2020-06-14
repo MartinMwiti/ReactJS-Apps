@@ -1,15 +1,21 @@
 import React from 'react'
 
-const SearchArea = () =>{
+const SearchArea = (props) =>{
     return (
         <div className="container">
 
             <div className="row">
                 <section className="col s4 offset-s4">
-                    <form action="">
+                    <form action="" onSubmit={props.handleSubmit}>
 
                         <div className="input-field">
-                            <input type="text" name="" value="" placeholder="Search movies..." />
+                            <input 
+                                type="text" 
+                                name="" 
+                                value={props.searchTerm} 
+                                placeholder="Search movies..."
+                                onChange= {props.handleChange}
+                            />
                         </div>
                         
                     </form>
