@@ -44,7 +44,7 @@ class App extends Component {
 
   // PAGINATION
   nextPage = (pageNumber)=>{
-    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&query=${this.state.pageNumber}`)
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&query=${this.state.searchTerm}&page=${pageNumber}`)
       .then((data) => data.json()) // This will return a few fields, the one you want to look at is the results field. (As stated by the api provider-MovieDB)
       .then(data => {
           console.log(data)
@@ -59,22 +59,31 @@ class App extends Component {
 
     return (
       <div>
+
         <Nav />
+
         <SearchArea 
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
           searchTerm={this.state.searchTerm}
         />
+
         <MovieList 
           movies={this.state.movies}
         />
+
         { 
           this.state.totalResults > 20 
           ? 
-          <Pagination pages={numberPages} nextPage={this.nextPage} currentPage={this.state.currentPage} />
+          <Pagination 
+            pages={numberPages} 
+            nextPage={this.nextPage} 
+            currentPage={this.state.currentPage} 
+          />
           :
           '' // display nothing if there in no pagination       
         }
+
       </div>
     )
   };
