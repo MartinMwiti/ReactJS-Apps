@@ -31,17 +31,16 @@ class App extends Component {
         <hr />
         <div className="row">
           <div className="col-md-8">
-            <Products 
-              products={this.state.filteredProducts} 
-              handleAddToCart={this.handleAddToCart} 
+            <Products
+              products={this.state.filteredProducts}
+              handleAddToCart={this.handleAddToCart}
             />
           </div>
-          <div className="col md-4">
 
-          </div>
+          <div className="col-md-4"></div>
         </div>
       </div>
-    )
+    );
   }
 };
 
