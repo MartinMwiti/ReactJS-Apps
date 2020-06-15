@@ -7,19 +7,17 @@ body{
   color: #f4f4f4
 }
 
-p, b{
+.content{
   color: #746c6c;
   font-weight: 600;
-  margin-top: 10px;
 }
 
 .card {
   height: 290px;
-  width: 170px;
-  margin-right: 3px;
 }
 
 h3{
   color: #fff;
   font-weight:500;
 }
+

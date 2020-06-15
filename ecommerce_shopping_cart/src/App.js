@@ -26,8 +26,8 @@ class App extends Component {
         
   render() {
     return (
-      <div className="container">
-        <h3 className="container">E-commerce Shopping Cart</h3>
+      <div className="container text-center">
+        <h3>E-commerce Shopping Cart</h3>
         <hr />
         <div className="row">
           <div className="col-md-8">
