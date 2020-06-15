@@ -56,7 +56,7 @@ class App extends Component {
 
 
   viewMovieInfo=(id)=>{
-    const filteredMovie = this.state.movies.filter((movie)=> movie.id === id) // returns an array
+    const filteredMovie = this.state.movies.filter((movie)=> movie.id === id) // returns an array with list of movies that match
 
     const newCurrentMovie = filteredMovie.length > 0 ? filteredMovie[0] : null // if the selected movie exists, pick the first one else return 'null'. Meaning no movie exists.
 
