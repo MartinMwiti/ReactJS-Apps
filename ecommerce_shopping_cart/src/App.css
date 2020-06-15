@@ -6,3 +6,13 @@ body{
 .container h1 {
   color: #f4f4f4
 }
+
+p, b{
+  color: #746c6c;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.card {
+  height: 290px;
+}

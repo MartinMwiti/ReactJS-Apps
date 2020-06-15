@@ -17,7 +17,7 @@ class Products extends Component {
                 <p>{product.title}</p>
                 <b className="mr-3">{product.price}</b>
                 <button
-                  className="btn btn-success btn-sm mb-1"
+                  className="btn btn-success"
                   onClick={(e)=>this.props.handleAddToCard(e, product)}
                 >Add To Cart</button>
               </a>
