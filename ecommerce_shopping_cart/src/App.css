@@ -7,8 +7,12 @@ body{
   color: #f4f4f4
 }
 
+p{
+  color: #746c6c;
+}
 .card-text{
   color: #746c6c;
+  margin-top: 35px;
 }
 
 .card {

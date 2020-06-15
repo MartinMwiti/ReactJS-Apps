@@ -14,10 +14,11 @@ class Products extends Component {
                   className="card-img-top"
                   src={`products/${product.sku}_2.jpg`}
                   alt={product.title}
-                  style={{"height": "12rem"}}
+                  style={{"height": "174px", "width": "120px"}}
                 />
+                <p>{product.title}</p>
                 <div className="card-text">
-                  <p>{product.title}</p>
+                  
                   <b className="mr-3">{product.price}</b>
                   <button
                     className="btn btn-success"
