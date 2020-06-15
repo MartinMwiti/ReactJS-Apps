@@ -1,5 +1,5 @@
 body{
-  background-color: #1abc9c;
+  background-color: #ee6e73;
   /* background: linear-gradient(90deg, #34495e, #2c3e50); */
 } 
 
@@ -10,9 +10,16 @@ body{
 p, b{
   color: #746c6c;
   font-weight: 600;
-  margin-bottom: 25px;
+  margin-top: 10px;
 }
 
 .card {
   height: 290px;
+  width: 170px;
+  margin-right: 3px;
+}
+
+h3{
+  color: #fff;
+  font-weight:500;
 }
