@@ -4,6 +4,7 @@ import './App.css';
 
 // components
 import Products from './components/Products'
+import NavBar from './components/NavBar'
 
 class App extends Component {
   constructor(){
@@ -27,7 +28,7 @@ class App extends Component {
   render() {
     return (
       <div className="container text-center">
-        <h3 className="title">E-commerce Shopping Cart</h3>
+        <NavBar />
         <hr />
         <div className="row">
           <div className="col-md-8">
