@@ -7,9 +7,17 @@ body{
   color: #f4f4f4
 }
 
-p{
+.product_title{
   color: #746c6c;
+  font-weight: 500;
+  height: 17px;
 }
+
+.card-img-top{
+  height: 174px;
+  width: 120px;
+}
+
 .card-text{
   color: #746c6c;
   margin-top: 35px;
