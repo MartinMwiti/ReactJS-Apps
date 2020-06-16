@@ -3,14 +3,11 @@ body{
   /* background: linear-gradient(90deg, #34495e, #2c3e50); */
 } 
 
-.container h1 {
-  color: #f4f4f4
-}
 
-.product_title{
-  color: #746c6c;
-  font-weight: 500;
-  height: 17px;
+/* CARD PROPERTY */
+.card {
+  height: 290px;
+  width: 14rem;
 }
 
 .card-img-top{
@@ -18,16 +15,18 @@ body{
   width: 120px;
 }
 
+.card_product_title{
+  height: 17px;
+  color: #746c6c;
+  font-weight: 500;
+}
+
 .card-text{
   color: #746c6c;
   margin-top: 35px;
 }
 
-.card {
-  height: 290px;
-}
-
-h3{
+.title{
   color: #fff;
   font-weight:500;
 }

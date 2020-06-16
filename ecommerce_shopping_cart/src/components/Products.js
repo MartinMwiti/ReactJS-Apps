@@ -8,15 +8,14 @@ class Products extends Component {
         const productItems = products.map((product) => (
           // console.log(product.title)
           <div className="col-md-4" key={product.id}>
-            <div className="text-center card mb-3" style={{"width": "14rem"}}>
+            <div className="text-center card mb-3">
               <a href={`#${product.id}`} onClick={(e) => this.props.handleAddToCard(e, product)}>
                 <img
                   className="card-img-top"
                   src={`products/${product.sku}_2.jpg`}
                   alt={product.title}
-                  
                 />
-                <p className="product_title">{product.title}</p>
+                <p className="card_product_title">{product.title}</p>
                 <div className="card-text">                  
                   <b className="mr-3">{product.price}</b>
                   <button
