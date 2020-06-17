@@ -29,6 +29,11 @@ class App extends Component {
         filteredProducts: response.data,
       })
     );
+    if (localStorage.getItem("cartItems")) {
+      this.setState({
+        cartItems: JSON.parse(localStorage.getItem("cartItems")),
+      });
+    }
   }
 
   handleChangeSort = (e) => {
@@ -78,27 +83,34 @@ class App extends Component {
   }
 
   // Adding Items to Cart
-  handleAddToCart = (e, product)=>{
-    this.setState((state)=>{
+  handleAddToCart = (e, product) => {
+    this.setState((state) => {
       // Important: read `state` instead of `this.state` when updating.
-      const cartItems = state.cartItems
-      let productAlreadyInCart = false // set this into state
+      const cartItems = state.cartItems;
+      let productAlreadyInCart = false; // set this into state
 
-      cartItems.forEach(item=>{
-        if(item.id === product.id){
-          productAlreadyInCart = true
-          item.count++
+      cartItems.forEach((item) => {
+        if (item.id === product.id) {
+          productAlreadyInCart = true;
+          item.count++;
         }
-      })
-        if(!productAlreadyInCart){
-          cartItems.push({...product, count:1}) // if the itm already exist, make the length/count be 1 representing that item
-        }
-        localStorage.setItem("cartItems", JSON.stringify(cartItems)); // to save the product into local storage
-        return cartItems
+      });
+      if (!productAlreadyInCart) {
+        cartItems.push({ ...product, count: 1 }); // if the itm already exist, make the length/count be 1 representing that item
+      }
+      localStorage.setItem("cartItems", JSON.stringify(cartItems)); // to save the product into local storage
+      return cartItems
+    });
+  };
+
+  handleRemoveFromCart=(e, item)=>{
+    this.setState((state) => {
+        const cartItems = state.cartItems.filter((a) => a.id !== item.id);
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        return {cartItems}    
     })
   }
 
-  
   render() {
     return (
       <div className="container text-center">
@@ -125,7 +137,7 @@ class App extends Component {
           <div className="col-md-4">
             <Basket
               cartItems={this.state.cartItems}
-              handleRemoveFromCart={this.handleRemoveCart}
+              handleRemoveFromCart={this.handleRemoveFromCart}
             />
           </div>
         </div>
