@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import util from '../util'
+
 
 class Products extends Component {
 
@@ -17,11 +19,11 @@ class Products extends Component {
                 />
                 <p className="card_product_title">{product.title}</p>
                 <div className="card-text">                  
-                  <b className="mr-3">{product.price}</b>
+                  <b className="mr-3">{util.formatCurrency(product.price)}</b>
                   <button
                     className="btn btn-success"
                     onClick={(e)=>this.props.handleAddToCard(e, product)}
-                  >Add{' '}<i class="fa fa-shopping-cart"></i></button>
+                  >Add{' '}<i className="fa fa-shopping-cart"></i></button>
                 </div>               
               </a>
             </div>
