@@ -6,6 +6,7 @@ import './App.css';
 import Products from './components/Products'
 import NavBar from './components/NavBar'
 import Filter from './components/Filter'
+import Basket from './components/Basket'
 
 class App extends Component {
   constructor(){
@@ -100,7 +101,10 @@ class App extends Component {
 
           </div>
 
-          <div className="col-md-4"></div>
+          <div className="col-md-4">
+            <Basket />
+          </div>
+          
         </div>
       </div>
     );
