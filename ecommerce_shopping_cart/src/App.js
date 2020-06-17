@@ -13,7 +13,8 @@ class App extends Component {
     super();
     this.state = {
       products: [],
-      filteredProducts: []
+      filteredProducts: [],
+      cartItems: [],
     }
     // this.handleChangeSort = this.handleChangeSort.bind(this)
     // this.handleChangeSize = this.handleChangeSize.bind(this)
@@ -102,9 +103,12 @@ class App extends Component {
           </div>
 
           <div className="col-md-4">
-            <Basket />
+            <Basket 
+              cartItems={this.state.cartItems}
+              // handleRemoveFromCart={this.cart.handleRemoveCart}
+            />
           </div>
-          
+
         </div>
       </div>
     );
