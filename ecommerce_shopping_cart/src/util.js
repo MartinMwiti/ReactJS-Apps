@@ -5,9 +5,9 @@ export default {
             style: "currency",
             currency: "USD"
         }
-        return Number(num.toFixed(2)).toLocaleString("es-US", currencyValue);
+        return Number(num.toFixed(2)).toLocaleString("es-US", currencyValue)
     }
-};
+}
 
 // toFixed()
     // The toFixed() method converts a number into a string, rounding to a specified number of decimals.
