@@ -12,8 +12,9 @@ class App extends Component {
     super();
     this.state = {
       products: [],
-      filteredProducts: [],
+      filteredProducts: []
     }
+    // this.handleChangeSort = this.handleChangeSort.bind(this)
   }
 
   // API
@@ -27,11 +28,42 @@ class App extends Component {
           })
         )
   };
+
+  handleChangeSort = (e)=> {
+    this.setState({sort: e.target.value})
+    this.listProducts(); 
+  }
+
+  // SORT/FILTER PRODUCTS METHOD
+  listProducts(){
+    this.setState((state)=>{ // create new state for 'sort'
+
+      if(state.sort !== '') {
+        state.products.sort((a,b)=> // sort based on lowest/highest in terms of there prices.
+          (state.sort === 'lowest') 
+          ? 
+            (a.price > b.price ? 1 : -1)
+          :
+            (a.price < b.price ? 1 : -1)
+          )
+      }
+      else {
+        state.products.sort((a, b)=> 
+          (a.id < b.id ? 1 : -1) // sort based on there id. This will act as the default sort method. i.e when you click 'select'
+          )
+      }
+
+      return { filteredProducts: state.products }
+
+    })
+  }
+
         
   render() {
 
     return (
       <div className="container text-center">
+
         <NavBar />
         <hr />
         <div className="row">
@@ -43,7 +75,10 @@ class App extends Component {
               sort={this.state.sort} 
               handleChangeSize={this.handleChangeSize} 
               handleChangeSort={this.handleChangeSort}
+              count={this.state.filteredProducts.length}
             />
+
+            <hr />
 
             <Products
               products={this.state.filteredProducts}
