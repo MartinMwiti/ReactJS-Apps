@@ -15,6 +15,7 @@ class App extends Component {
       filteredProducts: []
     }
     // this.handleChangeSort = this.handleChangeSort.bind(this)
+    // this.handleChangeSize = this.handleChangeSize.bind(this)
   }
 
   // API
@@ -34,7 +35,12 @@ class App extends Component {
     this.listProducts(); 
   }
 
-  // SORT/FILTER PRODUCTS METHOD
+  handleChangeSize = (e) => {
+    this.setState({size: e.target.value})
+    this.listProducts();
+  }
+ 
+  // SORT & FILTER PRODUCTS METHOD
   listProducts(){
     this.setState((state)=>{ // create new state for 'sort'
 
@@ -53,12 +59,19 @@ class App extends Component {
           )
       }
 
+      if (state.size !== '') {
+        return { filteredProducts: state.products.filter(a=>
+          a.availableSizes.indexOf(state.size.toUpperCase())>=0
+        ) }
+      }
+
+
       return { filteredProducts: state.products }
 
     })
   }
 
-        
+       
   render() {
 
     return (
