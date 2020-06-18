@@ -21,7 +21,7 @@ class App extends Component {
     // this.handleChangeSize = this.handleChangeSize.bind(this)
   }
 
-  // API. AJAX REQUEST
+  
   componentDidMount() {
     
     if (localStorage.getItem("cartItems")) {
