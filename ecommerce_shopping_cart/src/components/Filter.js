@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from "react-redux";
+import { filterProducts } from "../actions/productActions"
+
 
 class Filter extends Component {
     render() {
@@ -31,7 +34,7 @@ class Filter extends Component {
                             <select
                             className="form-control"
                             value={this.props.size}
-                            onChange={this.props.handleChangeSize}
+                            onChange={(e)=>this.props.filterProducts(this.props.products, e.target.value)}
                         >
                             <option value="">ALL</option>
                             <option value="xs">XS</option>
@@ -49,4 +52,9 @@ class Filter extends Component {
     }
 }
 
-export default Filter
+const mapStateToProps = state => ({
+    products: state.products.items, // 'products' that is being used within the JSX above(this.props.products). NB: Don't use another none existent name.
+    size: state.products.size       // 'size' that is being used within the JSX above(this.props.size). NB: Don't use another none existent name.
+})
+
+export default connect(mapStateToProps, { filterProducts })(Filter);

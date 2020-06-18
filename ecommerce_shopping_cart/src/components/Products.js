@@ -39,7 +39,7 @@ class Products extends Component {
     }
 }
 
-const mapStateToProps = state => ({products: state.products.items}) // 'state' refers to the 'state' of redux. 'products' points to the 'productReducer' as specified in the root reducer.
+const mapStateToProps = (state) => ({ products: state.products.filteredItems }); // 'state' refers to the 'state' of redux. 'products' points to the 'productReducer' as specified in the root reducer.
 
 export default connect(mapStateToProps, { fetchProducts })(Products);
 
