@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
+import { connect } from "react-redux";
+import { fetchProducts } from "../actions/productActions";
 
 import util from '../util'
 
 
 class Products extends Component {
+  componentDidMount(){
+    this.props.fetchProducts() // call the method
+  }
 
     render() {
         const products = Array.from(this.props.products)
@@ -34,4 +39,8 @@ class Products extends Component {
     }
 }
 
-export default Products;
+const mapStateToProps = state => ({products: state.products.items}) // 'state' refers to the 'state' of redux. 'products' points to the 'productReducer' as specified in the root reducer.
+
+export default connect(mapStateToProps, { fetchProducts })(Products);
+
+// 'connect' accepts two values. mapStateToProps & action type

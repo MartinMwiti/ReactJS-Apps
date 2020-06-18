@@ -2,7 +2,7 @@
 import { FETCH_PRODUCTS } from "./types"
 import axios from "axios";
 
-export const fetch_products = () => (dispatch) => {
+export const fetchProducts = () => (dispatch) => {
     // AJAX REQUEST
     axios.get("http://localhost:8000/products/").then((response) =>
     {
